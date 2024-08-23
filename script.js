@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Subscribe button click event
     document.getElementById('subscribe-btn').addEventListener('click', () => {
+    window.open('https://www.youtube.com/channel/UCSi0gJbOF3LEH5iijAbKPlg?sub_confirmation=1', '_blank');
+});
+
         fetch('/api/subscribe', {
             method: 'POST',
             headers: {
