@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Token Claim</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube Logo" class="youtube-logo">
+        </div>
+        <h1 id="shares-count">Your Shares: 0</h1>
+    </header>
+    <main>
+        <button id="subscribe-btn" class="action-btn">Subscribe for 1000 Shares</button>
+        <div id="tasks-section" class="tasks-section">
+            <h2>Complete Tasks for More Shares</h2>
+            <div class="task" id="watch-video-task">
+                <p>Watch the video below:</p>
+                <iframe id="youtube-video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                <button id="video-complete-btn" class="action-btn">Mark Video as Watched</button>
+            </div>
+            <div class="task" id="join-telegram-task">
+                <p>Join our Telegram channel:</p>
+                <a href="https://t.me/your_channel" target="_blank" class="telegram-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Telegram_Logo.svg" alt="Telegram Logo" class="small-telegram-logo">
+                    Join Now
+                </a>
+            </div>
+        </div>
+        <div class="telegram-referral-section">
+            <h2>Refer Friends to Earn Shares</h2>
+            <p>Earn 500 shares for each friend who joins our Telegram channel using your referral link.</p>
+            <a href="https://t.me/your_channel?start=your_referral_id" target="_blank" class="telegram-referral-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Telegram_Logo.svg" alt="Telegram Logo" class="small-telegram-logo">
+                Refer and Earn Shares
+            </a>
+        </div>
+        <div class="withdraw-section">
+            <h2>Withdraw Shares</h2>
+            <form id="withdraw-form">
+                <label for="ton-wallet">TON Wallet Address:</label>
+                <input type="text" id="ton-wallet" name="ton-wallet" required>
+                <button type="submit" class="action-btn withdraw-btn">Withdraw</button>
+            </form>
+            <p class="fee-info">Transaction Fee: 0.001 TON</p>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
