@@ -21,9 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Subscribe button click event
     document.getElementById('subscribe-btn').addEventListener('click', () => {
-    window.open('https://www.youtube.com/channel/UCSi0gJbOF3LEH5iijAbKPlg?sub_confirmation=1', '_blank');
-});
-
+        window.open('https://www.youtube.com/channel/UCSi0gJbOF3LEH5iijAbKPlg?sub_confirmation=1', '_blank');
         fetch('/api/subscribe', {
             method: 'POST',
             headers: {
@@ -42,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Video completion button
     document.getElementById('video-complete-btn').addEventListener('click', () => {
-        // Hide the video and the task
         document.getElementById('youtube-video').style.display = 'none';
         document.getElementById('watch-video-task').style.display = 'none';
         userShares += 500; // Add shares for watching video
@@ -52,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Validate that the user has joined the Telegram channel
     document.querySelector('#join-telegram-task a').addEventListener('click', () => {
-        // Simulate validation; this would normally involve an API call or tracking
         setTimeout(() => {
             userShares += 500; // Add shares for joining Telegram
             document.getElementById('join-telegram-task').style.display = 'none'; // Hide task
