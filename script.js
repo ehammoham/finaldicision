@@ -1,12 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sharesCountElement = document.getElementById('shares-count');
     const tasksSection = document.getElementById('tasks-section');
+    const referralLinkElement = document.getElementById('referral-link');
     let userShares = 0; // Start with 0 shares
 
-    // Update share count on page load
+    // Function to update the share count display
     function updateSharesDisplay() {
         sharesCountElement.textContent = `Your Shares: ${userShares}`;
     }
+
+    // Function to generate a unique referral link
+    function generateReferralLink(userId) {
+        return `https://t.me/dndcryptobots?start=${userId}`;
+    }
+
+    // Fetch user ID from backend or local storage
+    const userId = 'unique-user-id'; // This should be generated or fetched dynamically
+    const referralLink = generateReferralLink(userId);
+    referralLinkElement.href = referralLink;
 
     // Subscribe button click event
     document.getElementById('subscribe-btn').addEventListener('click', () => {
@@ -15,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ telegramId: 'user-telegram-id' }) // Example ID; replace with actual
+            body: JSON.stringify({ telegramId: userId })
         })
         .then(response => response.json())
         .then(data => {
@@ -48,10 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Referral task - always visible
-    document.querySelector('#referral-task a').addEventListener('click', () => {
+    document.querySelector('#referral-link').addEventListener('click', () => {
         userShares += 500; // Add shares for referring friends
-        alert('Referral link clicked! You have earned 500 shares.');
         updateSharesDisplay();
+        alert('Referral link clicked! You have earned 500 shares.');
     });
 
     // Withdraw form submission
@@ -69,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ telegramId: 'user-telegram-id', amount: userShares }) // Example values; replace with actual
+            body: JSON.stringify({ telegramId: userId, amount: userShares })
         })
         .then(response => response.json())
         .then(data => {
